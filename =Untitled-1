@@ -1,0 +1,840 @@
+Last login: Fri Jan 12 10:11:44 on console
+Bharats-iMac:~ bharat$ ssh megathyk@megathykom.com
+megathyk@megathykom.com's password:
+Last login: Thu Jan 11 09:27:31 2018 from 122.15.125.233
+megathyk@megathykom.com [~]#
+megathyk@megathykom.com [~]# cd public_html/
+megathyk@megathykom.com [~/public_html]# ls
+./         .htaccess.bak.1460028580  MegathyAdmin/               PrivacyPolicy/  error_log    images/     info.php   php.ini
+../        .htaccess.bak.1460035510  MegathyAdmin.tar            cgi-bin/        favicon.ico  img/        js/        php.ini.opcachedisable
+.htaccess  .htaccess.bak.1510563994  MegathyAdminLogRemoved.tar  css/            fonts/       index.html  megathyl/  phpinfo.php
+megathyk@megathykom.com [~/public_html]# md MailTest
+-jailshell: md: command not found
+megathyk@megathykom.com [~/public_html]# mkdir MailTest
+megathyk@megathykom.com [~/public_html]# cd MailTest/
+megathyk@megathykom.com [~/public_html/MailTest]# cat test.php
+cat: test.php: No such file or directory
+megathyk@megathykom.com [~/public_html/MailTest]# touch test.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# cat test.php
+<?php
+echo "ok";
+?>
+megathyk@megathykom.com [~/public_html/MailTest]# which php
+/usr/bin/php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+Installer verified
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php composer-setup.php
+All settings correct for using Composer
+Downloading...
+
+Composer (version 1.6.2) successfully installed to: /home1/megathyk/public_html/MailTest/composer.phar
+Use it: php composer.phar
+
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php -r "unlink('composer-setup.php');"
+megathyk@megathykom.com [~/public_html/MailTest]# ls
+./  ../  composer.phar*  test.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php composer.phar  require phpmailer/phpmailer
+Using version ^6.0 for phpmailer/phpmailer
+./composer.json has been created
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing phpmailer/phpmailer (v6.0.3): Downloading (100%)
+phpmailer/phpmailer suggests installing psr/log (For optional PSR-3 debug logging)
+phpmailer/phpmailer suggests installing league/oauth2-google (Needed for Google XOAUTH2 authentication)
+phpmailer/phpmailer suggests installing hayageek/oauth2-yahoo (Needed for Yahoo XOAUTH2 authentication)
+phpmailer/phpmailer suggests installing stevenmaguire/oauth2-microsoft (Needed for Microsoft XOAUTH2 authentication)
+phpmailer/phpmailer suggests installing symfony/polyfill-mbstring (To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2))
+Writing lock file
+Generating autoload files
+megathyk@megathykom.com [~/public_html/MailTest]# ls
+./  ../  composer.json  composer.lock  composer.phar*  test.php  vendor/
+megathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php test.php
+2018-01-12 05:23:51	Invalid address:  (From): root@localhost
+Message could not be sent.Mailer Error: Invalid address:  (From): root@localhostmegathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php test.php
+^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php test.php
+2018-01-12 05:50:30	SERVER -> CLIENT: 220-host214.hostmonster.com ESMTP Exim 4.89 #1 Thu, 11 Jan 2018 22:50:30 -0700
+                   	                  220-We do not authorize the use of this system to transport unsolicited,
+                   	                  220 and/or bulk e-mail.
+2018-01-12 05:50:30	CLIENT -> SERVER: EHLO host214.hostmonster.com
+2018-01-12 05:50:31	SERVER -> CLIENT: 250-host214.hostmonster.com Hello host214.hostmonster.com [74.220.215.214]
+                   	                  250-SIZE 52428800
+                   	                  250-8BITMIME
+                   	                  250-PIPELINING
+                   	                  250-AUTH PLAIN LOGIN
+                   	                  250 HELP
+2018-01-12 05:50:31	CLIENT -> SERVER: AUTH LOGIN
+2018-01-12 05:50:31	SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2018-01-12 05:50:31	CLIENT -> SERVER: <credentials hidden>
+2018-01-12 05:50:31	SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2018-01-12 05:50:31	CLIENT -> SERVER: <credentials hidden>
+2018-01-12 05:50:31	SERVER -> CLIENT: 235 Authentication succeeded
+2018-01-12 05:50:31	CLIENT -> SERVER: MAIL FROM:<admin@megathykom.com>
+2018-01-12 05:50:31	SERVER -> CLIENT: 250 OK
+2018-01-12 05:50:31	CLIENT -> SERVER: RCPT TO:<bharat@logisticinfotech.co.in>
+2018-01-12 05:50:31	SERVER -> CLIENT: 250 Accepted
+2018-01-12 05:50:31	CLIENT -> SERVER: RCPT TO:<test123ac@gmail.com>
+2018-01-12 05:50:31	SERVER -> CLIENT: 250 Accepted
+2018-01-12 05:50:31	CLIENT -> SERVER: DATA
+2018-01-12 05:50:31	SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+2018-01-12 05:50:31	CLIENT -> SERVER: Date: Thu, 11 Jan 2018 23:50:30 -0600
+2018-01-12 05:50:31	CLIENT -> SERVER: To: Joe User <bharat@logisticinfotech.co.in>, test123ac@gmail.com
+2018-01-12 05:50:31	CLIENT -> SERVER: From: Mailer <admin@megathykom.com>
+2018-01-12 05:50:31	CLIENT -> SERVER: Subject: Here is the subject
+2018-01-12 05:50:31	CLIENT -> SERVER: Message-ID: <a6V8RMUdgjdxZX3DajVolqZMasFvTQdKmWGHBMoMO4@host214.hostmonster.com>
+2018-01-12 05:50:31	CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.3 (https://github.com/PHPMailer/PHPMailer)
+2018-01-12 05:50:31	CLIENT -> SERVER: MIME-Version: 1.0
+2018-01-12 05:50:31	CLIENT -> SERVER: Content-Type: multipart/alternative;
+2018-01-12 05:50:31	CLIENT -> SERVER: 	boundary="b1_a6V8RMUdgjdxZX3DajVolqZMasFvTQdKmWGHBMoMO4"
+2018-01-12 05:50:31	CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2018-01-12 05:50:31	CLIENT -> SERVER:
+2018-01-12 05:50:31	CLIENT -> SERVER: This is a multi-part message in MIME format.
+2018-01-12 05:50:31	CLIENT -> SERVER: --b1_a6V8RMUdgjdxZX3DajVolqZMasFvTQdKmWGHBMoMO4
+2018-01-12 05:50:31	CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2018-01-12 05:50:31	CLIENT -> SERVER:
+2018-01-12 05:50:31	CLIENT -> SERVER: This is the body in plain text for non-HTML mail clients
+2018-01-12 05:50:31	CLIENT -> SERVER:
+2018-01-12 05:50:31	CLIENT -> SERVER: --b1_a6V8RMUdgjdxZX3DajVolqZMasFvTQdKmWGHBMoMO4
+2018-01-12 05:50:31	CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2018-01-12 05:50:31	CLIENT -> SERVER:
+2018-01-12 05:50:31	CLIENT -> SERVER: This is the HTML message body <b>in bold!</b>
+2018-01-12 05:50:31	CLIENT -> SERVER:
+2018-01-12 05:50:31	CLIENT -> SERVER:
+2018-01-12 05:50:31	CLIENT -> SERVER: --b1_a6V8RMUdgjdxZX3DajVolqZMasFvTQdKmWGHBMoMO4--
+2018-01-12 05:50:31	CLIENT -> SERVER:
+2018-01-12 05:50:31	CLIENT -> SERVER: .
+2018-01-12 05:50:31	SERVER -> CLIENT: 250 OK id=1eZsEZ-001XK0-2X
+2018-01-12 05:50:31	CLIENT -> SERVER: QUIT
+2018-01-12 05:50:31	SERVER -> CLIENT: 221 host214.hostmonster.com closing connection
+Message has been sentmegathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php composer.phar create-project --prefer-dist laravel/laravel blog
+Installing laravel/laravel (v5.5.28)
+  - Installing laravel/laravel (v5.5.28): Downloading (100%)
+Created project in blog
+> @php -r "file_exists('.env') || copy('.env.example', '.env');"
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 70 installs, 0 updates, 0 removals
+  - Installing symfony/thanks (v1.0.1): Downloading (100%)
+  - Installing hamcrest/hamcrest-php (v2.0.0): Loading from cache
+  - Installing mockery/mockery (1.0): Loading from cache
+  - Installing vlucas/phpdotenv (v2.4.0): Loading from cache
+  - Installing symfony/css-selector (v3.4.3): Downloading (100%)
+  - Installing tijsverkoyen/css-to-inline-styles (2.2.0): Loading from cache
+  - Installing symfony/polyfill-mbstring (v1.6.0): Loading from cache
+  - Installing symfony/var-dumper (v3.4.3): Downloading (100%)
+  - Installing symfony/routing (v3.4.3): Downloading (100%)
+  - Installing symfony/process (v3.4.3): Downloading (100%)
+  - Installing paragonie/random_compat (v2.0.11): Loading from cache
+  - Installing symfony/polyfill-php70 (v1.6.0): Downloading (100%)
+  - Installing symfony/http-foundation (v3.4.3): Downloading (100%)
+  - Installing symfony/event-dispatcher (v3.4.3): Downloading (100%)
+  - Installing psr/log (1.0.2): Loading from cache
+  - Installing symfony/debug (v3.4.3): Downloading (100%)
+  - Installing symfony/http-kernel (v3.4.3): Downloading (100%)
+  - Installing symfony/finder (v3.4.3): Downloading (100%)
+  - Installing symfony/console (v3.4.3): Downloading (100%)
+  - Installing doctrine/lexer (v1.0.1): Loading from cache
+  - Installing egulias/email-validator (2.1.3): Loading from cache
+  - Installing swiftmailer/swiftmailer (v6.0.2): Loading from cache
+  - Installing ramsey/uuid (3.7.1): Loading from cache
+  - Installing psr/simple-cache (1.0.0): Loading from cache
+  - Installing psr/container (1.0.0): Loading from cache
+  - Installing symfony/translation (v3.4.3): Downloading (100%)
+  - Installing nesbot/carbon (1.22.1): Loading from cache
+  - Installing mtdowling/cron-expression (v1.2.1): Loading from cache
+  - Installing monolog/monolog (1.23.0): Loading from cache
+  - Installing league/flysystem (1.0.41): Loading from cache
+  - Installing erusev/parsedown (1.6.4): Loading from cache
+  - Installing doctrine/inflector (v1.2.0): Loading from cache
+  - Installing laravel/framework (v5.5.28): Downloading (100%)
+  - Installing fideloper/proxy (3.3.4): Loading from cache
+  - Installing jakub-onderka/php-console-color (0.1): Loading from cache
+  - Installing jakub-onderka/php-console-highlighter (v0.3.2): Loading from cache
+  - Installing dnoegel/php-xdg-base-dir (0.1): Loading from cache
+  - Installing nikic/php-parser (v3.1.3): Downloading (100%)
+  - Installing psy/psysh (v0.8.17): Downloading (100%)
+  - Installing laravel/tinker (v1.0.3): Downloading (100%)
+  - Installing filp/whoops (2.1.14): Loading from cache
+  - Installing fzaninotto/faker (v1.7.1): Loading from cache
+  - Installing sebastian/version (2.0.1): Loading from cache
+  - Installing sebastian/resource-operations (1.0.0): Loading from cache
+  - Installing sebastian/recursion-context (3.0.0): Loading from cache
+  - Installing sebastian/object-reflector (1.1.1): Loading from cache
+  - Installing sebastian/object-enumerator (3.0.3): Loading from cache
+  - Installing sebastian/global-state (2.0.0): Loading from cache
+  - Installing sebastian/exporter (3.1.0): Loading from cache
+  - Installing sebastian/environment (3.1.0): Loading from cache
+  - Installing sebastian/diff (2.0.1): Loading from cache
+  - Installing sebastian/comparator (2.1.1): Downloading (100%)
+  - Installing doctrine/instantiator (1.0.5): Loading from cache
+  - Installing phpunit/php-text-template (1.2.1): Loading from cache
+  - Installing phpunit/phpunit-mock-objects (5.0.6): Downloading (100%)
+  - Installing phpunit/php-timer (1.0.9): Loading from cache
+  - Installing phpunit/php-file-iterator (1.4.5): Loading from cache
+  - Installing theseer/tokenizer (1.1.0): Loading from cache
+  - Installing sebastian/code-unit-reverse-lookup (1.0.1): Loading from cache
+  - Installing phpunit/php-token-stream (2.0.2): Loading from cache
+  - Installing phpunit/php-code-coverage (5.3.0): Downloading (100%)
+  - Installing webmozart/assert (1.2.0): Loading from cache
+  - Installing phpdocumentor/reflection-common (1.0.1): Loading from cache
+  - Installing phpdocumentor/type-resolver (0.4.0): Loading from cache
+  - Installing phpdocumentor/reflection-docblock (4.2.0): Loading from cache
+  - Installing phpspec/prophecy (1.7.3): Loading from cache
+  - Installing phar-io/version (1.0.1): Loading from cache
+  - Installing phar-io/manifest (1.0.1): Loading from cache
+  - Installing myclabs/deep-copy (1.7.0): Loading from cache
+  - Installing phpunit/phpunit (6.5.5): Downloading (100%)
+symfony/var-dumper suggests installing ext-symfony_debug ()
+symfony/routing suggests installing doctrine/annotations (For using the annotation loader)
+symfony/routing suggests installing symfony/config (For using the all-in-one router or any loader)
+symfony/routing suggests installing symfony/dependency-injection (For loading routes from a service)
+symfony/routing suggests installing symfony/expression-language (For using expression matching)
+symfony/routing suggests installing symfony/yaml (For using the YAML loader)
+paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+symfony/event-dispatcher suggests installing symfony/dependency-injection ()
+symfony/http-kernel suggests installing symfony/browser-kit ()
+symfony/http-kernel suggests installing symfony/config ()
+symfony/http-kernel suggests installing symfony/dependency-injection ()
+symfony/console suggests installing symfony/lock ()
+ramsey/uuid suggests installing ircmaxell/random-lib (Provides RandomLib for use with the RandomLibAdapter)
+ramsey/uuid suggests installing ext-libsodium (Provides the PECL libsodium extension for use with the SodiumRandomGenerator)
+ramsey/uuid suggests installing ext-uuid (Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator)
+ramsey/uuid suggests installing moontoast/math (Provides support for converting UUID to 128-bit integer (in string form).)
+ramsey/uuid suggests installing ramsey/uuid-doctrine (Allows the use of Ramsey\Uuid\Uuid as Doctrine field type.)
+ramsey/uuid suggests installing ramsey/uuid-console (A console application for generating UUIDs with ramsey/uuid)
+symfony/translation suggests installing symfony/config ()
+symfony/translation suggests installing symfony/yaml ()
+monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+monolog/monolog suggests installing php-amqplib/php-amqplib (Allow sending log messages to an AMQP server using php-amqplib)
+monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+league/flysystem suggests installing league/flysystem-aws-s3-v2 (Allows you to use S3 storage with AWS SDK v2)
+league/flysystem suggests installing league/flysystem-aws-s3-v3 (Allows you to use S3 storage with AWS SDK v3)
+league/flysystem suggests installing league/flysystem-azure (Allows you to use Windows Azure Blob storage)
+league/flysystem suggests installing league/flysystem-cached-adapter (Flysystem adapter decorator for metadata caching)
+league/flysystem suggests installing league/flysystem-eventable-filesystem (Allows you to use EventableFilesystem)
+league/flysystem suggests installing league/flysystem-rackspace (Allows you to use Rackspace Cloud Files)
+league/flysystem suggests installing league/flysystem-sftp (Allows you to use SFTP server storage via phpseclib)
+league/flysystem suggests installing league/flysystem-webdav (Allows you to use WebDAV storage)
+league/flysystem suggests installing league/flysystem-ziparchive (Allows you to use ZipArchive adapter)
+league/flysystem suggests installing spatie/flysystem-dropbox (Allows you to use Dropbox storage)
+league/flysystem suggests installing srmklive/flysystem-dropbox-v2 (Allows you to use Dropbox storage for PHP 5 applications)
+laravel/framework suggests installing aws/aws-sdk-php (Required to use the SQS queue driver and SES mail driver (~3.0).)
+laravel/framework suggests installing doctrine/dbal (Required to rename columns and drop SQLite columns (~2.5).)
+laravel/framework suggests installing ext-pcntl (Required to use all features of the queue worker.)
+laravel/framework suggests installing guzzlehttp/guzzle (Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~6.0).)
+laravel/framework suggests installing league/flysystem-aws-s3-v3 (Required to use the Flysystem S3 driver (~1.0).)
+laravel/framework suggests installing league/flysystem-cached-adapter (Required to use Flysystem caching (~1.0).)
+laravel/framework suggests installing league/flysystem-rackspace (Required to use the Flysystem Rackspace driver (~1.0).)
+laravel/framework suggests installing nexmo/client (Required to use the Nexmo transport (~1.0).)
+laravel/framework suggests installing pda/pheanstalk (Required to use the beanstalk queue driver (~3.0).)
+laravel/framework suggests installing predis/predis (Required to use the redis cache and queue drivers (~1.0).)
+laravel/framework suggests installing pusher/pusher-php-server (Required to use the Pusher broadcast driver (~3.0).)
+laravel/framework suggests installing symfony/dom-crawler (Required to use most of the crawler integration testing tools (~3.3).)
+laravel/framework suggests installing symfony/psr-http-message-bridge (Required to psr7 bridging features (~1.0).)
+psy/psysh suggests installing ext-pcntl (Enabling the PCNTL extension makes PsySH a lot happier :))
+psy/psysh suggests installing ext-readline (Enables support for arrow-key history navigation, and showing and manipulating command history.)
+psy/psysh suggests installing ext-pdo-sqlite (The doc command requires SQLite to work.)
+psy/psysh suggests installing hoa/console (A pure PHP readline implementation. You'll want this if your PHP install doesn't already support readline or libedit.)
+filp/whoops suggests installing whoops/soap (Formats errors as SOAP responses)
+sebastian/global-state suggests installing ext-uopz (*)
+phpunit/php-code-coverage suggests installing ext-xdebug (^2.5.5)
+phpunit/phpunit suggests installing phpunit/php-invoker (^1.1)
+phpunit/phpunit suggests installing ext-xdebug (*)
+Writing lock file
+Generating optimized autoload files
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover
+Discovered Package: fideloper/proxy
+Discovered Package: laravel/tinker
+Package manifest generated successfully.
+> @php artisan key:generate
+Application key [base64:BsPuMfJsbtcMN5HcdJqBId0oFggmSPISS+WosTCaOwA=] set successfully.
+megathyk@megathykom.com [~/public_html/MailTest]# ls
+./  ../  blog/  composer.json  composer.lock  composer.phar*  test.php  vendor/
+megathyk@megathykom.com [~/public_html/MailTest]# cat composer.json
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.0"
+    }
+}
+megathyk@megathykom.com [~/public_html/MailTest]# ls
+./  ../  \=composer.json  \=composer.lock  blog/  composer.phar*  test.php  vendor/
+megathyk@megathykom.com [~/public_html/MailTest]# ren vendor/ =vendor
+-jailshell: ren: command not found
+megathyk@megathykom.com [~/public_html/MailTest]# rename vendor/ =vendor
+megathyk@megathykom.com [~/public_html/MailTest]# ls
+./  ../  \=composer.json  \=composer.lock  blog/  composer.phar*  test.php  vendor/
+megathyk@megathykom.com [~/public_html/MailTest]# rmdir -rf vendor/
+rmdir: invalid option -- 'r'
+Try `rmdir --help' for more information.
+megathyk@megathykom.com [~/public_html/MailTest]# rmdir vendor/
+rmdir: failed to remove `vendor/': Directory not empty
+megathyk@megathykom.com [~/public_html/MailTest]# rmdir --help
+Usage: rmdir [OPTION]... DIRECTORY...
+Remove the DIRECTORY(ies), if they are empty.
+
+      --ignore-fail-on-non-empty
+                  ignore each failure that is solely because a directory
+                    is non-empty
+  -p, --parents   remove DIRECTORY and its ancestors; e.g., `rmdir -p a/b/c' is
+                    similar to `rmdir a/b/c a/b a'
+  -v, --verbose   output a diagnostic for every directory processed
+      --help     display this help and exit
+      --version  output version information and exit
+
+Report rmdir bugs to bug-coreutils@gnu.org
+GNU coreutils home page: <http://www.gnu.org/software/coreutils/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+Report rmdir translation bugs to <http://translationproject.org/team/>
+For complete documentation, run: info coreutils 'rmdir invocation'
+megathyk@megathykom.com [~/public_html/MailTest]# ls
+./  ../  \=composer.json  \=composer.lock  blog/  composer.phar*  test.php  vendor/
+megathyk@megathykom.com [~/public_html/MailTest]# rm -R =vendor/
+rm: descend into directory `=vendor'? y
+rm: descend into directory `=vendor/phpmailer'? y
+rm: descend into directory `=vendor/phpmailer/phpmailer'? y
+rm: descend into directory `=vendor/phpmailer/phpmailer/src'? y
+rm: remove regular file `=vendor/phpmailer/phpmailer/src/SMTP.php'? y
+rm: remove regular file `=vendor/phpmailer/phpmailer/src/PHPMailer.php'? y
+rm: remove regular file `=vendor/phpmailer/phpmailer/src/Exception.php'? y
+rm: remove regular file `=vendor/phpmailer/phpmailer/src/POP3.php'? y
+rm: remove regular file `=vendor/phpmailer/phpmailer/src/OAuth.php'? y
+rm: remove directory `=vendor/phpmailer/phpmailer/src'? y
+rm: remove directory `=vendor/phpmailer/phpmailer'? y
+rm: remove directory `=vendor/phpmailer'? y
+rm: remove directory `=vendor'? y
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> echo "hello";
+hello⏎
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+=> null
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+Swift_TransportException with message 'Cannot send message without a sender address'
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+=> null
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+=> null
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>>  \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+=> null
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>>  \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("admin@megathykom.com")->subject("Testing email"); });
+=> null
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php composer.phar require phpmailer/phpmailer
+Using version ^6.0 for phpmailer/phpmailer
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Installing phpmailer/phpmailer (v6.0.3): Loading from cache
+phpmailer/phpmailer suggests installing league/oauth2-google (Needed for Google XOAUTH2 authentication)
+phpmailer/phpmailer suggests installing hayageek/oauth2-yahoo (Needed for Yahoo XOAUTH2 authentication)
+phpmailer/phpmailer suggests installing stevenmaguire/oauth2-microsoft (Needed for Microsoft XOAUTH2 authentication)
+Writing lock file
+Generating optimized autoload files
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover
+Discovered Package: fideloper/proxy
+Discovered Package: laravel/tinker
+Package manifest generated successfully.
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# cat test.php
+<?php
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+//Load composer's autoloader
+require 'vendor/autoload.php';
+
+$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+try {
+    //Server settings
+    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'host214.hostmonster.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'admin@megathykom.com';                 // SMTP username
+    $mail->Password = 'MegathyAdmin@123';                           // SMTP password
+    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;                                    // TCP port to connect to
+
+    //Recipients
+    $mail->setFrom('admin@megathykom.com', 'Mailer');
+    $mail->addAddress('bharat@logisticinfotech.co.in', 'Joe User');     // Add a recipient
+    $mail->addAddress('test123ac@gmail.com');               // Name is optional
+   // $mail->addReplyTo('info@example.com', 'Information');
+    //$mail->addCC('cc@example.com');
+    //$mail->addBCC('bcc@example.com');
+
+    //Attachments
+   // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+   // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+    //Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Here is the subject';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+}
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env^C
+megathyk@megathykom.com [~/public_html/MailTest]# cat routes/web.php
+<?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/mailTest', function () {
+    \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+});
+
+Route::get('/phpMailTest', function () {
+
+$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+try {
+    //Server settings
+    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'host214.hostmonster.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'admin@megathykom.com';                 // SMTP username
+    $mail->Password = 'MegathyAdmin@123';                           // SMTP password
+    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;                                    // TCP port to connect to
+
+    //Recipients
+    $mail->setFrom('admin@megathykom.com', 'Mailer');
+    $mail->addAddress('bharat@logisticinfotech.co.in', 'Joe User');     // Add a recipient
+    $mail->addAddress('test123ac@gmail.com');               // Name is optional
+   // $mail->addReplyTo('info@example.com', 'Information');
+    //$mail->addCC('cc@example.com');
+    //$mail->addBCC('bcc@example.com');
+
+    //Attachments
+   // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+   // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+    //Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Here is the subject';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+}
+});
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php composer.phar require swiftmailer/swiftmailer
+Using version ^6.0 for swiftmailer/swiftmailer
+./composer.json has been updated
+Loading composer repositories with package information
+Updating dependencies (including require-dev)
+Nothing to install or update
+Writing lock file
+Generating optimized autoload files
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover
+Discovered Package: fideloper/proxy
+Discovered Package: laravel/tinker
+Package manifest generated successfully.
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi config/mail.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# cat /usr/local/share/ca-certificates/my_cert.crt
+cat: /usr/local/share/ca-certificates/my_cert.crt: No such file or directory
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+PHP Warning:  stream_socket_client(): unable to connect to smtp-relay.gmail.com:587 (Connection timed out) in /home1/megathyk/public_html/MailTest/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/StreamBuffer.php on line 267
+Swift_TransportException with message 'Connection could not be established with host smtp-relay.gmail.com [Connection timed out #110]'
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+PHP Warning:  stream_socket_client(): unable to connect to smtp.gmail.com:587 (Connection timed out) in /home1/megathyk/public_html/MailTest/vendor/swiftmailer/swiftmailer/lib/classes/Swift/Transport/StreamBuffer.php on line 267
+Swift_TransportException with message 'Connection could not be established with host smtp.gmail.com [Connection timed out #110]'
+>>> ^C
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan make:command TestActivity
+Console command created successfully.
+megathyk@megathykom.com [~/public_html/MailTest]# ls app
+./  ../  Console/  Exceptions/  Http/  Providers/  User.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+^C
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+2018-01-12 10:39:43	SERVER -> CLIENT: 220-host214.hostmonster.com ESMTP Exim 4.89 #1 Fri, 12 Jan 2018 03:39:43 -0700
+                   	                  220-We do not authorize the use of this system to transport unsolicited,
+                   	                  220 and/or bulk e-mail.
+2018-01-12 10:39:43	CLIENT -> SERVER: EHLO host214.hostmonster.com
+2018-01-12 10:39:43	SERVER -> CLIENT: 250-host214.hostmonster.com Hello host214.hostmonster.com [74.220.215.214]
+                   	                  250-SIZE 52428800
+                   	                  250-8BITMIME
+                   	                  250-PIPELINING
+                   	                  250-AUTH PLAIN LOGIN
+                   	                  250 HELP
+2018-01-12 10:39:43	CLIENT -> SERVER: AUTH LOGIN
+2018-01-12 10:39:43	SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2018-01-12 10:39:43	CLIENT -> SERVER: <credentials hidden>
+2018-01-12 10:39:43	SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2018-01-12 10:39:43	CLIENT -> SERVER: <credentials hidden>
+2018-01-12 10:39:43	SERVER -> CLIENT: 235 Authentication succeeded
+2018-01-12 10:39:43	CLIENT -> SERVER: MAIL FROM:<admin@megathykom.com>
+2018-01-12 10:39:43	SERVER -> CLIENT: 250 OK
+2018-01-12 10:39:43	CLIENT -> SERVER: RCPT TO:<bharat@logisticinfotech.co.in>
+2018-01-12 10:39:43	SERVER -> CLIENT: 250 Accepted
+2018-01-12 10:39:43	CLIENT -> SERVER: RCPT TO:<test123ac@gmail.com>
+2018-01-12 10:39:43	SERVER -> CLIENT: 250 Accepted
+2018-01-12 10:39:43	CLIENT -> SERVER: DATA
+2018-01-12 10:39:43	SERVER -> CLIENT: 354 Enter message, ending with "." on a line by itself
+2018-01-12 10:39:43	CLIENT -> SERVER: Date: Fri, 12 Jan 2018 10:39:43 +0000
+2018-01-12 10:39:43	CLIENT -> SERVER: To: Joe User <bharat@logisticinfotech.co.in>, test123ac@gmail.com
+2018-01-12 10:39:43	CLIENT -> SERVER: From: Mailer <admin@megathykom.com>
+2018-01-12 10:39:43	CLIENT -> SERVER: Subject: Here is the subject
+2018-01-12 10:39:43	CLIENT -> SERVER: Message-ID: <hiixDTbq8S1aUuJ08FmwWJFYAXObjfFErEXVtELVM@host214.hostmonster.com>
+2018-01-12 10:39:43	CLIENT -> SERVER: X-Mailer: PHPMailer 6.0.3 (https://github.com/PHPMailer/PHPMailer)
+2018-01-12 10:39:43	CLIENT -> SERVER: MIME-Version: 1.0
+2018-01-12 10:39:43	CLIENT -> SERVER: Content-Type: multipart/alternative;
+2018-01-12 10:39:43	CLIENT -> SERVER: 	boundary="b1_hiixDTbq8S1aUuJ08FmwWJFYAXObjfFErEXVtELVM"
+2018-01-12 10:39:43	CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2018-01-12 10:39:43	CLIENT -> SERVER:
+2018-01-12 10:39:43	CLIENT -> SERVER: This is a multi-part message in MIME format.
+2018-01-12 10:39:43	CLIENT -> SERVER: --b1_hiixDTbq8S1aUuJ08FmwWJFYAXObjfFErEXVtELVM
+2018-01-12 10:39:43	CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2018-01-12 10:39:43	CLIENT -> SERVER:
+2018-01-12 10:39:43	CLIENT -> SERVER: This is the body in plain text for non-HTML mail clients
+2018-01-12 10:39:43	CLIENT -> SERVER:
+2018-01-12 10:39:43	CLIENT -> SERVER: --b1_hiixDTbq8S1aUuJ08FmwWJFYAXObjfFErEXVtELVM
+2018-01-12 10:39:43	CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2018-01-12 10:39:43	CLIENT -> SERVER:
+2018-01-12 10:39:43	CLIENT -> SERVER: This is the HTML message body <b>in bold!</b>
+2018-01-12 10:39:43	CLIENT -> SERVER:
+2018-01-12 10:39:43	CLIENT -> SERVER:
+2018-01-12 10:39:43	CLIENT -> SERVER: --b1_hiixDTbq8S1aUuJ08FmwWJFYAXObjfFErEXVtELVM--
+2018-01-12 10:39:43	CLIENT -> SERVER:
+2018-01-12 10:39:43	CLIENT -> SERVER: .
+2018-01-12 10:39:43	SERVER -> CLIENT: 250 OK id=1eZwkR-003xJO-7D
+2018-01-12 10:39:43	CLIENT -> SERVER: QUIT
+2018-01-12 10:39:43	SERVER -> CLIENT: 221 host214.hostmonster.com closing connection
+Message has been sentmegathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+
+In TestActivity.php line 53:
+
+  Class 'App\Console\Commands\Swift_SmtpTransport' not found
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+
+In TestActivity.php line 55:
+
+  Class 'App\Console\Commands\Swift_SmtpTransport' not found
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+check inbvoxmegathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+check inbvoxmegathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+check inbvoxmegathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+check inbvoxmegathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+
+In TestActivity.php line 5:
+
+  Namespace declaration statement has to be the very first statement or after any declare call in the script
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+
+In TestActivity.php line 4:
+
+  main(): Failed opening required 'swift_required.php' (include_path='.:/opt/php70/lib/php')
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# pwd
+/home1/megathyk/public_html/MailTest
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+
+In TestActivity.php line 56:
+
+  Class 'App\Console\Commands\Swift_SmtpTransport' not found
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi test.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+
+In TestActivity.php line 57:
+
+  Class 'App\Console\Commands\Swift_SmtpTransport' not found
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# vi routes/web.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+
+In TestActivity.php line 57:
+
+  Class 'App\Console\Commands\Swift_SmtpTransport' not found
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan test:mail
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker
+Psy Shell v0.8.17 (PHP 7.0.25 — cli) by Justin Hileman
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> \Mail::send([],[], function($message) { $message->to("test123ac@gmail.com")->subject("Testing email"); });
+=> null
+>>> Terminated
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan cache:clear
+Cache cleared successfully.
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan config:cache
+Configuration cache cleared!
+Configuration cached successfully!
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan cache:clear
+Cache cleared successfully.
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan tinker^C
+megathyk@megathykom.com [~/public_html/MailTest]# /usr/sbin/sendmail bharat@logisticinfotech.co.in
+^C
+megathyk@megathykom.com [~/public_html/MailTest]# /usr/sbin/sendmail --help
+Exim is a Mail Transfer Agent. It is normally called by Mail User Agents,
+not directly from a shell command line. Options and/or arguments control
+what it does when called. For a list of options, see the Exim documentation.
+megathyk@megathykom.com [~/public_html/MailTest]# /usr/sbin/sendmail
+Exim is a Mail Transfer Agent. It is normally called by Mail User Agents,
+not directly from a shell command line. Options and/or arguments control
+what it does when called. For a list of options, see the Exim documentation.
+megathyk@megathykom.com [~/public_html/MailTest]# vi .env
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan config:cache
+Configuration cache cleared!
+Configuration cached successfully!
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan queue:table
+Migration created successfully!
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan queue:failed-table
+Migration created successfully!
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan migrate
+Migration table created successfully.
+
+In Connection.php line 664:
+
+  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes (SQL: alter table `users` add unique `users_email_unique`(`em
+  ail`))
+
+
+In Connection.php line 458:
+
+  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Providers/AppServiceProvider.php
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan migrate
+
+In Connection.php line 664:
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'users' already exists (SQL: create table `users` (`id` int unsigned not null auto_increment primary key, `name
+  ` varchar(191) not null, `email` varchar(191) not null, `password` varchar(191) not null, `remember_token` varchar(100) null, `created_at` timestamp null, `updated_at` timest
+  amp null) default character set utf8mb4 collate utf8mb4_unicode_ci)
+
+
+In Connection.php line 458:
+
+  SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'users' already exists
+
+
+megathyk@megathykom.com [~/public_html/MailTest]# /opt/php70/bin/php artisan migrate
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table
+Migrating: 2018_01_12_133143_create_jobs_table
+Migrated:  2018_01_12_133143_create_jobs_table
+Migrating: 2018_01_12_133219_create_failed_jobs_table
+Migrated:  2018_01_12_133219_create_failed_jobs_table
+megathyk@megathykom.com [~/public_html/MailTest]# vi app/Console/Commands/TestActivity.php
+
+$transport = (new Swift_SmtpTransport('host214.hostmonster.com', 465))
+  ->setUsername('admin@megathykom.com')
+  ->setPassword('MegathyAdmin@123')
+;
+
+$transport = new Swift_SendmailTransport('/usr/sbin/sendmail -bs');
+
+// Create the Mailer using your created Transport
+$mailer = new Swift_Mailer($transport);
+
+// Create a message
+$message = (new Swift_Message('Wonderful Subject'))
+  ->setFrom(['admin@megathykom.com' => 'John Doe'])
+  ->setTo(['test123ac@gmail.com' => 'A name'])
+  ->setBody('Here is the message itself')
+  ;
+
+// Send the message
+$result = $mailer->send($message);
+echo "check inbvox";die;
+*/
+
+
+
+
+
+$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+try {
+    //Server settings
+    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'host214.hostmonster.com';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'admin@megathykom.com';                 // SMTP username
+    $mail->Password = 'MegathyAdmin@123';                           // SMTP password
+    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;                                    // TCP port to connect to
+
+    //Recipients
+    $mail->setFrom('admin@megathykom.com', 'Mailer');
+    $mail->addAddress('bharat@logisticinfotech.co.in', 'Joe User');     // Add a recipient
+    $mail->addAddress('test123ac@gmail.com');               // Name is optional
+   // $mail->addReplyTo('info@example.com', 'Information');
+    //$mail->addCC('cc@example.com');
+    //$mail->addBCC('bcc@example.com');
+
+    //Attachments
+   // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+   // $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+    //Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Here is the subject';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+}
+    }
+}
