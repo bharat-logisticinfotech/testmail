@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('test-mail', function () {
+    \Mail::send([], [], function ($message) { $message->to(env('TEST_MAIL_TO'))->subject("Testing simple email"); });
+    echo "Simple Mail Sent";
+
+    \Mail::to(env('TEST_MAIL_TO'))->queue(new App\Mail\TestQueueMail());
+    echo '<br/><br/>Queue Mail Sent- to run queue fire <b>php artisan queue:work</b>';
+
+    echo '<br/><br/>Also a cron command is there run using <b>php artisan test:cron</b>';
+
+    echo '<br/><br/>To tinker email test command : <br/>\Mail::send([],[], function($message) { $message->to("'.env('TEST_MAIL_TO').'")->subject("Testing tinker email"); });';
+});
