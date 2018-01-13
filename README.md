@@ -16,4 +16,4 @@ Mail test with server using various conditions:
     - add/update mail address .env file (TEST_MAIL_TO=bharat@logisticinfotech.co.in)
     - php artisan migrate
 
-    Thats it, now run url followed with /test-mail
+    Thats it, now run url followed with /test-mail; /test-simple-mail
