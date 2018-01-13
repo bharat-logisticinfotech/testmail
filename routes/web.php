@@ -26,3 +26,7 @@ Route::get('test-mail', function () {
 
     echo '<br/><br/>To tinker email test command : <br/>\Mail::send([],[], function($message) { $message->to("'.env('TEST_MAIL_TO').'")->subject("Testing tinker email"); });';
 });
+
+Route::get('infophp',function(){
+    phpinfo();
+});
